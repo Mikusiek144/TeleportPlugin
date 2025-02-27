@@ -11,7 +11,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class TpAcceptCommand implements CommandExecutor {
 
-    private static final int TELEPORT_DELAY = 5; // Czas oczekiwania przed teleportacją
+    private static final int TELEPORT_DELAY = 5;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -56,7 +56,6 @@ public class TpAcceptCommand implements CommandExecutor {
 
         target.sendMessage(Utils.colorize("&aZaakceptowałeś teleportację! Gracz " + requester.getName() + " zostanie teleportowany za " + TELEPORT_DELAY + " sekund."));
 
-        // Dodanie efektu Blindness
         requester.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, TELEPORT_DELAY * 20, 0, false, false));
 
         new BukkitRunnable() {
@@ -67,12 +66,11 @@ public class TpAcceptCommand implements CommandExecutor {
                 if (timeLeft <= 0) {
                     requester.teleport(request.getFixedLocation());
                     requester.sendMessage(Utils.colorize("&aZostałeś teleportowany do " + target.getName() + "!"));
-                    requester.removePotionEffect(PotionEffectType.BLINDNESS); // Usunięcie efektu Blindness
+                    requester.removePotionEffect(PotionEffectType.BLINDNESS); 
                     cancel();
                     return;
                 }
 
-                // Wyświetlanie czasu w **centrum ekranu** zamiast w ActionBarze
                 requester.sendTitle(Utils.colorize("&eTeleportacja za..."), Utils.colorize("&c" + timeLeft + " sekund"), 0, 20, 10);
                 timeLeft--;
             }
