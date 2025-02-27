@@ -1,0 +1,13 @@
+teleport_delay: 5  # Czas oczekiwania na teleportację po akceptacji (w sekundach)
+
+messages:
+  player_not_found: "&#ff0000Gracz nie znaleziony!"
+  request_sent: "&#00ff00Wysłałeś prośbę o teleportację do {target}."
+  request_received: "&#ffff00{player} wysłał ci prośbę o teleportację."
+  no_request: "&#ff0000Nie masz żadnych próśb o teleportację!"
+  teleported: "&#00ff00Zostałeś teleportowany do {target}!"
+  accepted: "&#00ff00Zaakceptowałeś prośbę o teleportację od {player}."
+  request_expired: "&#ff0000Prośba o teleportację wygasła!"
+  teleport_countdown: "&#ffff00Teleportacja za {seconds} sekund!"
+  all_requests_denied: "&#ff0000Odrzuciłeś wszystkie prośby o teleportację!"
+  request_denied: "&#ff0000Odrzuciłeś prośbę o teleportację od {player}!"

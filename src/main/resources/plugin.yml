@@ -1,0 +1,15 @@
+name: TeleportPlugin
+version: 1.0
+main: com.mikusiek.teleportplugin.Main
+api-version: 1.21
+author: Mikusiek
+commands:
+  tpa:
+    description: Wysyła prośbę o teleportację.
+    usage: /tpa <gracz>
+  tpaccept:
+    description: Akceptuje prośbę o teleportację.
+    usage: /tpaccept <gracz>
+  tpadeny:
+    description: Odrzuca prośbę o teleportację.
+    usage: /tpadeny <gracz>
