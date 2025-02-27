@@ -12,7 +12,7 @@ import java.util.UUID;
 public class TpaCommand implements CommandExecutor {
 
     private static final HashMap<UUID, Long> cooldowns = new HashMap<>();
-    private static final int COOLDOWN_TIME = 3; // Cooldown na ponowne wysłanie prośby
+    private static final int COOLDOWN_TIME = 3;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -23,7 +23,6 @@ public class TpaCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        // Sprawdzenie cooldownu
         if (cooldowns.containsKey(player.getUniqueId())) {
             long timeLeft = (cooldowns.get(player.getUniqueId()) / 1000) + COOLDOWN_TIME - (System.currentTimeMillis() / 1000);
             if (timeLeft > 0) {
@@ -50,7 +49,6 @@ public class TpaCommand implements CommandExecutor {
 
         cooldowns.put(player.getUniqueId(), System.currentTimeMillis());
 
-        // Utworzenie i zapisanie prośby
         TpaRequest request = new TpaRequest(player, target, target.getLocation());
         TpaRequest.requests.put(target, request);
 
